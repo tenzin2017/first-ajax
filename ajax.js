@@ -28,9 +28,11 @@ document.addEventListener("DOMContentLoaded", function() {
       var p = document.createElement('p');
       p.innerText = responseData;
       section.appendChild(p);
-    }).fail(function(){
-      console.log("That didn't go well");
-
+    }).fail(function(jqXHR, textStatus, errorThrown){
+      console.log("That didn't go well")
+      var p = document.createElement('p');
+      p.innerText = errorThrown;
+      sectionLast.appendChild(p);
     }).always(function(){
       console.log("All I know is , it's over !");
     });
